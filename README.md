@@ -232,3 +232,15 @@ module "dlmRule401" {
     - `policy_details.schedules.archive_rule`: 스냅샷 아카이빙 장기 보관 규칙을 설정합니다.
     - `policy_details.schedules.target_tags`: 스냅샷 대상 EBS 볼륨을 식별하는 태그 규칙을 설정합니다. 
 
+
+## 백업 대상 EBS 볼륨, EC2 인스턴스 태그 모범 사례
+
+| Tag-Key               | Tag-Value   | Example                       | Description                        |
+|-----------------------|-------------|-------------------------------|------------------------------------|
+| ops:Snapshot          | daily       | daily, weekly, monthly, 1~999 | 스냅샷 생성 주기를 설정합니다. 숫자값은 day 기준 입니다. |
+| ops:SnapshotType      | volume      | volume, instance              | 스냅샷 또는 AMI 백업 여부를 설정합니다.           |
+| ops:SnapshotRetention | "30"        | 30, day-30, week-1, month-1   | 스냅샷 보관 기간을 설정합니다.                  |
+| ops:Archive           | "true"      | true, false                   | 스냅샷 장기 보관 여부를 설정합니다.               |
+| ops:ArchiveRetention  | "month-6"   | month-6, year-3               | 스냅샷 장기 보관 기간을 설정합니다. 6개월 또는 1년     |
+
+- 태그키 및 태그값을 통해 EBS 볼륨 또는 EC2 인스턴스의 백업 및 보관 정책을 즉시 확인할 수 있으며, target_tags 키를 설정할 때도 용이 합니다. 
