@@ -46,7 +46,7 @@ module "dlmRule101" {
       copy_tags = true
     }
     target_tags = {
-      "ops:Snapshot" = "true"
+      "ops:Snapshot" = "1"
     }
   }
 }
@@ -75,7 +75,7 @@ module "dlmRule201" {
       }
     }
     target_tags = {
-      "ops:Snapshot" = "true"
+      "ops:Snapshot" = "daily"
     }
   }
 }
@@ -142,7 +142,7 @@ module "dlmRule401" {
       }
     }
     target_tags = {
-      "ops:Snapshot"     = "true"
+      "ops:Snapshot"     = "1"
       "ops:SnapshotType" = "instance"
     }
   }
@@ -209,7 +209,7 @@ module "dlmRule401" {
       copy_tags = true
     }
     target_tags = {
-      "ops:Snapshot" = "true"
+      "ops:Snapshot" = "1"
     }
   }
 </pre></td>
